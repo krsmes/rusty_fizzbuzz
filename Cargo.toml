@@ -1,0 +1,9 @@
+[package]
+name = "fizzbuzz"
+version = "0.1.0"
+authors = ["ac7644f282b8cb18d3cb784e4f4d6558203c12ee <krsjunk@netscape.net>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
