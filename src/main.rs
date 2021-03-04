@@ -1,6 +1,8 @@
 
 fn fizzbuzz(i: u8) -> String {
-	if i % 3 == 0 {
+	if i % 15 == 0 {
+		"fizzbuzz".to_string()
+	} else if i % 3 == 0 {
 		"fizz".to_string()
 	} else if i % 5 == 0  {
 		"buzz".to_string()
@@ -11,6 +13,9 @@ fn fizzbuzz(i: u8) -> String {
 
 fn main() {
     println!("Hello, world!");
+    for val in 1..=100 {
+    	println!("{}", fizzbuzz(val));
+    }
 }
 
 #[test]
@@ -27,6 +32,12 @@ fn fizzbuzz_returns_buzz_for_divisible_by_5() {
 	}
 }
 
+#[test]
+fn fizzbuzz_returns_buzz_for_divisible_by_3_and_5() {
+	for val in vec![15,30].iter() {
+		assert_eq!("fizzbuzz", fizzbuzz(*val));
+	}
+}
 #[test]
 fn fizzbuzz_returns_1_for_1() {
 	assert_eq!("1", fizzbuzz(1));
