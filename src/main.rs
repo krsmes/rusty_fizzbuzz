@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-fn fizzbuzz_orig(i: u8) -> String {
+fn fizzbuzz_orig(i: i32) -> String {
 	if i % 15 == 0 {
 		"fizzbuzz".to_string()
 	} else if i % 3 == 0 {
@@ -12,7 +12,7 @@ fn fizzbuzz_orig(i: u8) -> String {
 }
 
 #[allow(dead_code)]
-fn fizzbuzz_strcat(i: u8) -> String {
+fn fizzbuzz_strcat(i: i32) -> String {
 	let mut resp = "".to_string();
 	if i % 3 == 0 {
 		resp.push_str("fizz")
@@ -26,7 +26,7 @@ fn fizzbuzz_strcat(i: u8) -> String {
 	resp
 }
 
-fn fizzbuzz(i: u8) -> String {
+fn fizzbuzz(i: i32) -> String {
 	match (i % 3, i % 5) {
 		(0,0) => "fizzbuzz".to_string(),
 		(0,_) => "fizz".to_string(),
@@ -62,10 +62,12 @@ fn fizzbuzz_returns_buzz_for_divisible_by_3_and_5() {
 		assert_eq!("fizzbuzz", fizzbuzz(*val));
 	}
 }
+
 #[test]
 fn fizzbuzz_returns_1_for_1() {
 	assert_eq!("1", fizzbuzz(1));
 }
+
 #[test]
 fn fizzbuzz_returns_2_for_2() {
 	assert_eq!("2", fizzbuzz(2));
