@@ -1,5 +1,4 @@
 #[allow(dead_code)]
-
 fn fizzbuzz_orig(i: u8) -> String {
 	if i % 15 == 0 {
 		"fizzbuzz".to_string()
@@ -12,7 +11,8 @@ fn fizzbuzz_orig(i: u8) -> String {
 	}
 }
 
-fn fizzbuzz(i: u8) -> String {
+#[allow(dead_code)]
+fn fizzbuzz_strcat(i: u8) -> String {
 	let mut resp = "".to_string();
 	if i % 3 == 0 {
 		resp.push_str("fizz")
@@ -24,6 +24,15 @@ fn fizzbuzz(i: u8) -> String {
 		resp.push_str(&i.to_string())
 	}
 	resp
+}
+
+fn fizzbuzz(i: u8) -> String {
+	match (i % 3, i % 5) {
+		(0,0) => "fizzbuzz".to_string(),
+		(0,_) => "fizz".to_string(),
+		(_,0) => "buzz".to_string(),
+		_ => i.to_string(),
+	}
 }
 
 fn main() {
